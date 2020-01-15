@@ -194,6 +194,19 @@ add_hook('ClientAreaPrimarySidebar', 1, function ($primarySidebar) {
         )
       );
 
+      // DNSSEC
+      $sidebar->addChild(
+        'dnssec',
+        array(
+          'name' => 'DNSSEC',
+          'label' => 'DNSSEC',
+          'uri' => 'kilatdomain_dnssec.php?id=' . $domainid,
+          'current' => $filename == 'kilatdomain_dnssec',
+          'disabled' => $domainIsNotActive,
+          'order' => 150,
+        )
+      );
+
       // DOMAIN DOCUMENTS
       $sidebar->addChild(
         'domaindocuments',
