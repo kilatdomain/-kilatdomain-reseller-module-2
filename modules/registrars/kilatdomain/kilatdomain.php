@@ -284,10 +284,49 @@ function kilatdomain_DFDeleteRecords($params)
   return $result;
 }
 
+function kilatdomain_InfoDNSSec($params)
+{
+  $result = kilatdomain_call('dnssec/' . $params['domainname'], 'get', $params);
+
+  $result = json_decode($result, true);
+
+  if ($result['status'] == 'error') {
+    return ['error' => $result['message']];
+  }
+
+  return $result['dnssec'];
+}
+
+function kilatdomain_AddDNSSec($params)
+{
+  $params['data'] = $params;
+  $result = kilatdomain_call('dnssec/add', 'post', $params);
+  $result = json_decode($result, true);
+ 
+  if ($result['status'] == 'error') {
+    return ['error' => $result['message']];
+  }
+
+  return $result['status'];
+}
+
+function kilatdomain_DeleteDNSSec($params)
+{
+  $params['data'] = $params;
+  $result = kilatdomain_call('dnssec/delete', 'post', $params);
+  $result = json_decode($result, true);
+ 
+  if ($result['status'] == 'error') {
+    return ['error' => $result['message']];
+  }
+
+  return $result['status'];
+}
+
 function kilatdomain_UploadDocument($params)
 {
 
-  if (function_exists('curl_file_create')) { // php 5.5+
+  if (function_exists('curl_file_create')) {
     $cFile = curl_file_create($params['full_path'], $params['mime']);
   } else {
     $cFile = '@' . realpath($params['full_path']);
