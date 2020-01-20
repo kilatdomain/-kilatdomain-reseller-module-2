@@ -363,6 +363,9 @@ function kilatdomain_call($url, $method, $params, bool $isUpload = false)
   if (!$isUpload) {
     array_push($header, 'Content-Type: application/json');
   }
+  else {
+    $sendParams = $params;
+  }
 
   curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 
