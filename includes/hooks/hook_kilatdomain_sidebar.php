@@ -174,8 +174,8 @@ add_hook('ClientAreaPrimarySidebar', 1, function ($primarySidebar) {
         array(
           'name' => 'DNS Management',
           'label' => 'DNS Management',
-          'uri' => 'kilatdomain_dns.php?id=' . $domainid,
-          'current' => $filename == 'kilatdomain_dns',
+          'uri' => 'manage_dns.php?id=' . $domainid,
+          'current' => $filename == 'manage_dns',
           'disabled' => $domainIsNotActive,
           'order' => 130,
         )
@@ -187,8 +187,8 @@ add_hook('ClientAreaPrimarySidebar', 1, function ($primarySidebar) {
         array(
           'name' => 'Domain Forwarding',
           'label' => 'Domain Forwarding',
-          'uri' => 'kilatdomain_df.php?id=' . $domainid,
-          'current' => $filename == 'kilatdomain_df',
+          'uri' => 'manage_df.php?id=' . $domainid,
+          'current' => $filename == 'manage_df',
           'disabled' => $domainIsNotActive,
           'order' => 140,
         )
@@ -200,8 +200,8 @@ add_hook('ClientAreaPrimarySidebar', 1, function ($primarySidebar) {
         array(
           'name' => 'DNSSEC',
           'label' => 'DNSSEC',
-          'uri' => 'kilatdomain_dnssec.php?id=' . $domainid,
-          'current' => $filename == 'kilatdomain_dnssec',
+          'uri' => 'manage_dnssec.php?id=' . $domainid,
+          'current' => $filename == 'manage_dnssec',
           'disabled' => $domainIsNotActive,
           'order' => 150,
         )
@@ -213,8 +213,8 @@ add_hook('ClientAreaPrimarySidebar', 1, function ($primarySidebar) {
         array(
           'name' => 'Domain Documents',
           'label' => 'Domain Documents',
-          'uri' => 'kilatdomain_document.php?id=' . $domainid,
-          'current' => $filename == 'kilatdomain_document',
+          'uri' => 'manage_document.php?id=' . $domainid,
+          'current' => $filename == 'manage_document',
           'disabled' => false,
           'order' => 160,
         )
